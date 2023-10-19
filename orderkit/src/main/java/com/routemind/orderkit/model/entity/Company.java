@@ -28,7 +28,8 @@ public class Company {
     private String email;
     @Column(name = "address")
     private String address;
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "status")
     private Status status;
     @ManyToMany
     @JoinTable(

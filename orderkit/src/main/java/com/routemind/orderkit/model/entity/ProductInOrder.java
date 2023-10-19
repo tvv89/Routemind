@@ -27,7 +27,8 @@ public class ProductInOrder {
     private Double count;
     @Column(name = "note")
     private String note;
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "status")
     private Status status;
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;

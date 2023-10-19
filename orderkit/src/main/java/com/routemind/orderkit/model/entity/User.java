@@ -18,11 +18,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+    @Column(name = "login")
     private String login;
+    @Column(name = "password")
     private String password;
+    @Column(name = "email")
     private String email;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
+    @Column(name = "phone")
     private String phone;
     @ManyToMany
     @JoinTable(
@@ -34,7 +40,8 @@ public class User {
     private String department;
     @Column(name = "job")
     private String job;
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "status")
     private Status status;
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;

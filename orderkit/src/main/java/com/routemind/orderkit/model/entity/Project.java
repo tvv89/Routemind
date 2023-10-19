@@ -25,9 +25,11 @@ public class Project {
     private String code;
     @Column(name = "description")
     private String description;
-    @ManyToOne
+    @OneToOne
+    @JoinColumn(name = "company")
     private Company company;
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "status")
     private Status status;
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;

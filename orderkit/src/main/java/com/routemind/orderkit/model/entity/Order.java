@@ -30,7 +30,8 @@ public class Order {
     private LocalDateTime endTIme;
     @OneToOne
     private User owner;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "status")
     private Status status;
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;

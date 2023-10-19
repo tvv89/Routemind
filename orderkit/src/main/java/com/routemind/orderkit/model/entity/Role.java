@@ -19,7 +19,8 @@ public class Role {
     private Long id;
     @Column(name = "name")
     private String name;
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "status")
     private Status status;
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;

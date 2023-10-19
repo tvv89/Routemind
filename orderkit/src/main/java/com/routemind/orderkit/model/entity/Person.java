@@ -31,7 +31,8 @@ public class Person {
     private String phone;
     @OneToOne
     private Company company;
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "status")
     private Status status;
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;

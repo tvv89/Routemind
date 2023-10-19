@@ -4,3 +4,10 @@ spring:
     url: jdbc:postgresql://localhost:5432/routemind
     username: postgres
     password: root
+  jpa:
+    properties:
+      hibernate:
+        default_schema: public
+logging:
+  level:
+    com.routemind.orderkit: debug

@@ -34,8 +34,10 @@ public class Product {
     @Column(name = "count")
     private Double count;
     @OneToOne
+    @JoinColumn(name = "company")
     private Company company;
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "status")
     private Status status;
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
