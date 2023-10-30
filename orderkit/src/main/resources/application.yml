@@ -1,3 +1,5 @@
+server:
+  port: 8080
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
@@ -8,6 +10,14 @@ spring:
     properties:
       hibernate:
         default_schema: public
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9000
 logging:
   level:
     com.routemind.orderkit: debug
+springdoc:
+  api-docs:
+    path: /v1/api-routemind-docs

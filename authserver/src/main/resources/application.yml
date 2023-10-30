@@ -1,0 +1,38 @@
+server:
+  port: 9000
+
+logging:
+  level:
+    org.springframework.security: trace
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/routemind
+    username: postgres
+    password: root
+  jpa:
+    properties:
+      hibernate:
+        default_schema: public
+  security:
+    oauth2:
+      authorizationserver:
+        client:
+          oidc-client:
+            registration:
+              client-id: "9278a006-48cf-11ee-be56-0242ac120002"
+              client-secret: "OpJbevU3wMcZSMk6PNYLkKe1DmnUctWHTEyTuLME"
+              client-authentication-methods:
+                - "client_secret_basic"
+              authorization-grant-types:
+                - "authorization_code"
+                - "refresh_token"
+              redirect-uris:
+                - "http://127.0.0.1:8080/login/oauth2/code/oidc-client"
+              post-logout-redirect-uris:
+                - "http://127.0.0.1:8080/"
+              scopes:
+                - "openid"
+                - "profile"
+            require-authorization-consent: true
